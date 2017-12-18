@@ -1,0 +1,46 @@
+<div class="centerDiv">
+<h1>Welcome to our program!</h1>
+<br>
+	<div class="form-group">
+		<label>Criteria number:</label>
+		<input type="text" class="form-control" ng-model="criteriaNumber"/>
+	</div>
+	<div class="form-group">
+		<label>Solutions number:</label>
+		<input type="text" class="form-control" ng-model="solutionsNumber"/>
+	</div>
+	<button type="button" class="btn btn-primary btn-lg mainBtn" ng-click= "showTable()" style="margin:20px">Ok</button>
+	<div ng-if="isTableVisible">
+		<table class="table" cellpadding="1" cellspacing="1" border="1" width="50%">
+			<tr>
+				<td ng-repeat="criteria in criterias track by $index">
+					<input type="checkbox" ng-model="criteria.selected">
+				</td>
+			</tr>
+			<tr ng-repeat="inputModel in controleModel track by $id(inputModel.id)">
+				<td ng-repeat="criteria in criterias track by $index">
+					<input type="text" ng-model="inputModel[criteria.key]">
+				</td>
+			</tr>
+		</table>
+		<br/>
+		<button type="button" class="btn btn-primary btn-lg mainBtn" ng-click= "calculate()" style="margin:20px">Found multiplicity
+		</button>
+		<br/>
+		<table class="table" cellpadding="1" cellspacing="1" border="1" width="50%">
+			<tr ng-repeat="row in responseTable track by $index">
+				<td ng-repeat="column in row track by $index">
+					{{column}}
+				</td>
+			</tr>
+		</table>
+		<br/>
+		
+	</div>
+	<button ng-if="isTableVisible" type="button" class="btn btn-primary btn-lg mainBtn" ng-click= "showChart()" style="margin:20px">Show chart
+		</button>
+	<div ng-if="isChartVisible">
+		<canvas id="myChart" width="400" height="400"></canvas>
+	</div>
+</div>
+</div>

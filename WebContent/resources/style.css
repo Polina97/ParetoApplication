@@ -1,0 +1,10 @@
+.mainBtn{
+	width: 200px;
+}
+.centerDiv{
+	width: 500px !important;
+	display: block;
+    text-align:center;
+    padding: 100px;
+    margin-left: 400px;
+}
